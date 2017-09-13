@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913101153) do
+ActiveRecord::Schema.define(version: 20170913101545) do
 
   create_table "lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "title",      limit: 65535, null: false
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170913101153) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "nickname"
   end
 
   add_foreign_key "lists", "users"
