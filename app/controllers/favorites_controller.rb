@@ -1,5 +1,6 @@
 class FavoritesController < ApplicationController
   def home
+    @lists = List.all
   end
 
   def about
