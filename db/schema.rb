@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913101545) do
+ActiveRecord::Schema.define(version: 20170913101915) do
+
+  create_table "links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "title",      limit: 65535, null: false
+    t.text     "url",        limit: 65535, null: false
+    t.integer  "user_id"
+    t.integer  "list_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["list_id"], name: "index_links_on_list_id", using: :btree
+    t.index ["user_id"], name: "index_links_on_user_id", using: :btree
+  end
 
   create_table "lists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "title",      limit: 65535, null: false
@@ -36,5 +47,7 @@ ActiveRecord::Schema.define(version: 20170913101545) do
     t.string   "nickname"
   end
 
+  add_foreign_key "links", "lists"
+  add_foreign_key "links", "users"
   add_foreign_key "lists", "users"
 end
