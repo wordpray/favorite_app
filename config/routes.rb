@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     get 'search', on: :collection
     get 'recommend', on: :collection
   end
+
+  resources :users, only: [:index, :show]
 end
