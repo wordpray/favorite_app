@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   get '/about', to:'favorites#about'
   get '/contact', to:'favorites#contact'
 
-  resources :favorites, only: [:show, :new, :create, :destroy, :edit] do
+  resources :lists, only: [:new, :show, :create, :destroy, :edit] do
     get 'search', on: :collection
     get 'recommend', on: :collection
   end
-
+  
   resources :users, only: [:index, :show]
 end
