@@ -1,0 +1,12 @@
+- provide(:title, "Create")
+
+.container
+  .row
+    .col-sm-2
+    .col-sm-8
+      .form-group
+        = form_for(@category) do |f|
+          = f.label :title
+          = f.text_area :title, class: "field form-control", rows: "1", maxlength: "20", placeholder: "Create category"
+          = f.submit "Create", class: "btn btn-primary"
+    .col-sm-2

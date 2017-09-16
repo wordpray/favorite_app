@@ -3,6 +3,9 @@
 .container
   .row
     .col-sm-2
+      = link_to new_category_path do
+        Add
+        .fa.fa-plus-square-o
       #myCategory.list-group{:role => "tablist"}
         %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#news", :role => "tab"} ニュース
         %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#programming", :role => "tab"} プログラミング
