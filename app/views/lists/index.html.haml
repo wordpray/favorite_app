@@ -1,2 +1,42 @@
-- @lists.each do |list|
- =link_to "#{list.title}", list_path(list)
+.container
+  .row
+    .col-sm-3.hidden-xs
+      %h4 人気タブ
+      .list-group
+        %button.list-group-item.list-group-item-action.active{:type => "button"}
+          tab1
+        %button.list-group-item.list-group-item-action{:type => "button"} tab2
+        %button.list-group-item.list-group-item-action{:type => "button"} tab3
+        %button.list-group-item.list-group-item-action{:type => "button"} tab4
+        %button.list-group-item.list-group-item-action{:type => "button"} tab5
+      %h4 人気リスト
+      .list-group
+        %button.list-group-item.list-group-item-action.active{:type => "button"}
+          tab1
+        %button.list-group-item.list-group-item-action{:type => "button"} tab2
+        %button.list-group-item.list-group-item-action{:type => "button"} tab3
+        %button.list-group-item.list-group-item-action{:type => "button"} tab4
+        %button.list-group-item.list-group-item-action{:type => "button"} tab5
+      %h4 人気ユーザー
+      .list-group
+        %button.list-group-item.list-group-item-action.active{:type => "button"}
+          tab1
+        %button.list-group-item.list-group-item-action{:type => "button"} tab2
+        %button.list-group-item.list-group-item-action{:type => "button"} tab3
+        %button.list-group-item.list-group-item-action{:type => "button"} tab4
+        %button.list-group-item.list-group-item-action{:type => "button"} tab5
+
+    .col-sm-9
+      %ul.nav.nav-tabs
+        %li.active
+          %a{"data-toggle" => "tab", href: "#new"} 新着
+        %li
+          %a{"data-toggle" => "tab", href: "#popular"} 人気
+      .tab-content
+        #new.tab-pane.active
+          .col-sm-6
+            %h4 新着記事一覧
+          .col-sm-6
+            %h4 新着記事一覧
+        #popular.tab-pane
+          %h4 人気記事一覧

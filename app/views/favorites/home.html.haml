@@ -1,10 +1,67 @@
 - provide(:title, "Home")
 
 .container
-  / Main component for a primary marketing message or call to action
-  .jumbotron
-    %h1 Navbar example
-    %p This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.
-    %p To see the difference between static and fixed top navbars, just scroll.
-    %p
-      %a.btn.btn-lg.btn-primary{:href => "../../components/#navbar", :role => "button"} View navbar docs »
+  .row
+    .col-sm-2
+      #myCategory.list-group{:role => "tablist"}
+        %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#news", :role => "tab"} ニュース
+        %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#programming", :role => "tab"} プログラミング
+        %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#messages", :role => "tab"} ブログ
+        %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#settings", :role => "tab"} 就職
+    .col-sm-2
+      .tab-content
+        #news.tab-pane.active{:role => "tabpanel"}
+          .list-group
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              日経新聞
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              yahooニュース
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              Lineニュース
+        #programming.tab-pane{:role => "tabpanel"}
+          .list-group
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              Ruby
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              Python
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              Rails
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              bootstrap
+        #messages.tab-pane{:role => "tabpanel"}
+          .list-group
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              リスト
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              リスト
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              リスト
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              リスト
+        #settings.tab-pane{:role => "tabpanel"}
+          .list-group
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              リスト
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              リスト
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              リスト
+            %button.list-group-item.list-group-item-action{:type => "button"}
+              リスト
+    .col-sm-8
+      .jumbotron
+        %ul
+          .col-sm-6
+            %li
+              =link_to "タイトル", "#"
+          .col-sm-6
+            %li
+              =link_to "タイトル", "#"
+          .col-sm-6
+            %li
+              =link_to "タイトル", "#"
+          .col-sm-6
+            %li
+              =link_to "タイトル", "#"
+
+
