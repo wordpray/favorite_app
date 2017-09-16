@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/about', to:'favorites#about'
   get '/contact', to:'favorites#contact'
 
-  resources :lists, only: [:new, :show, :create, :destroy, :edit] do
+  resources :lists do
     get 'search', on: :collection
     get 'recommend', on: :collection
   end
