@@ -7,13 +7,15 @@
         Add
         .fa.fa-plus-square-o
       #myCategory.list-group{:role => "tablist"}
-        %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#news", :role => "tab"} ニュース
-        %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#programming", :role => "tab"} プログラミング
-        %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#messages", :role => "tab"} ブログ
-        %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#settings", :role => "tab"} 就職
+        - @categories.each_with_index do |category, i|
+          %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#list#{i}", :role => "tab"}
+            = category.title
     .col-sm-2
+      = link_to new_category_path do
+        Add
+        .fa.fa-plus-square-o
       .tab-content
-        #news.tab-pane.active{:role => "tabpanel"}
+        #list0.tab-pane.active{:role => "tabpanel"}
           .list-group
             %button.list-group-item.list-group-item-action{:type => "button"}
               日経新聞
@@ -21,7 +23,7 @@
               yahooニュース
             %button.list-group-item.list-group-item-action{:type => "button"}
               Lineニュース
-        #programming.tab-pane{:role => "tabpanel"}
+        #list1.tab-pane{:role => "tabpanel"}
           .list-group
             %button.list-group-item.list-group-item-action{:type => "button"}
               Ruby
@@ -31,7 +33,7 @@
               Rails
             %button.list-group-item.list-group-item-action{:type => "button"}
               bootstrap
-        #messages.tab-pane{:role => "tabpanel"}
+        #list3.tab-pane{:role => "tabpanel"}
           .list-group
             %button.list-group-item.list-group-item-action{:type => "button"}
               リスト
@@ -41,7 +43,7 @@
               リスト
             %button.list-group-item.list-group-item-action{:type => "button"}
               リスト
-        #settings.tab-pane{:role => "tabpanel"}
+        #list4.tab-pane{:role => "tabpanel"}
           .list-group
             %button.list-group-item.list-group-item-action{:type => "button"}
               リスト
