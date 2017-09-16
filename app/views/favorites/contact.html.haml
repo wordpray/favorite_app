@@ -1,2 +1,6 @@
-%h1 Favorites#contact
-%p Find me in app/views/favorites/contact.html.haml
+%ul
+  %li
+    %form.form-inline
+      %input.form-control.mr-sm-2{"aria-label" => "Search", placeholder: "Search", :type => "text"}/
+      = button_tag type: "submit", class: "button btn btn-outline-success my-2 my-sm-0" do
+        %i.fa.fa-search

@@ -1,2 +1,22 @@
-%h1 Favorites#about
-%p Find me in app/views/favorites/about.html.haml
+%nav.navbar.navbar-expand-xl.navbar-dark.bg-dark
+  %a.navbar-brand{:href => "#"} Expand at xl
+  %button.navbar-toggler.collapsed{"aria-controls" => "navbarsExample06", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExample06", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarsExample06.navbar-collapse.collapse{:style => ""}
+    %ul.navbar-nav.mr-auto
+      %li.nav-item.active
+        %a.nav-link{:href => "#"}
+          Home
+          %span.sr-only (current)
+      %li.nav-item
+        %a.nav-link{:href => "#"} Link
+      %li.nav-item
+        %a.nav-link.disabled{:href => "#"} Disabled
+      %li.nav-item.dropdown
+        %a#dropdown06.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "http://example.com"} Dropdown
+        .dropdown-menu{"aria-labelledby" => "dropdown06"}
+          %a.dropdown-item{:href => "#"} Action
+          %a.dropdown-item{:href => "#"} Another action
+          %a.dropdown-item{:href => "#"} Something else here
+    %form.form-inline.my-2.my-md-0
+      %input.form-control{:placeholder => "Search", :type => "text"}/

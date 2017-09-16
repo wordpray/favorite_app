@@ -1,0 +1,50 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "true", "data-target" => "#navbar", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      =link_to "Favoris", root_path, class: "navbar-brand"
+    #navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li.active
+          = link_to root_path do
+            %i.fa.fa-home
+            Home
+        %li
+          = link_to "#" do
+            %i.fa.fa-users
+            Users
+        %li
+          = link_to "#" do
+            %i.fa.fa-list
+            Lists
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to "#" do
+            %i.fa.fa-glide
+            Quick guide
+        - if user_signed_in?
+          %li.btn-group
+            %a.dropdown-toggle{"data-toggle" => "dropdown"}
+              %i.fa.fa-user
+              User
+            %ul.dropdown-menu
+              %li
+                %a{:href => ""} Mypage
+              %li
+                %a{:href => ""} Settings
+              %li.divider
+              %li
+                %a{:href => ""} Log out
+        - else
+          %li
+            = link_to "#" do
+              %i.fa.fa-sign-in
+              Sign in
+          %li
+            = link_to "#" do
+              %i.fa.fa-user-plus
+              メンバー登録
