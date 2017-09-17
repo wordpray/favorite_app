@@ -10,6 +10,8 @@ class ListsController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @categories = @user.categories.order('title ASC')
     @list  = List.find(params[:id])
     @links = @list.links
   end

@@ -3,73 +3,10 @@
 .container
   .row
     .col-sm-2
-      = link_to new_category_path do
-        Add
-        .fa.fa-plus-square-o
-      #myCategory.list-group{:role => "tablist"}
-        - @categories.each_with_index do |category, i|
-          %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#list#{i}", :role => "tab"}
-            = category.title
+      = render "sidebar/category", categories: @categories
     .col-sm-3
-      = link_to new_list_path do
-        Add
-        .fa.fa-plus-square-o
-      .tab-content
-        #list0.tab-pane.active{:role => "tabpanel"}
-          .list-group
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              日経新聞
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              yahooニュース
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              Lineニュース
-        #list1.tab-pane{:role => "tabpanel"}
-          .list-group
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              Ruby
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              Python
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              Rails
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              bootstrap
-        #list3.tab-pane{:role => "tabpanel"}
-          .list-group
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              リスト
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              リスト
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              リスト
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              リスト
-        #list4.tab-pane{:role => "tabpanel"}
-          .list-group
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              リスト
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              リスト
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              リスト
-            %button.list-group-item.list-group-item-action{:type => "button"}
-              リスト
+      = render "sidebar/list", categories: @categories
     .col-sm-7
-      = link_to "#{}" do
+      = link_to new_link_path do
         Add
         .fa.fa-plus-square-o
-      .jumbotron
-        %ul
-          .col-sm-6
-            %li
-              =link_to "タイトル", "#"
-          .col-sm-6
-            %li
-              =link_to "タイトル", "#"
-          .col-sm-6
-            %li
-              =link_to "タイトル", "#"
-          .col-sm-6
-            %li
-              =link_to "タイトル", "#"
-
-

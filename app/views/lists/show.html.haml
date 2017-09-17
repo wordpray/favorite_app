@@ -1,3 +1,26 @@
 .container
-  - @links.each do |link|
-    =link_to "#{link.title}", "#{link.url}"
+  .row
+    .col-sm-2
+      = render "sidebar/category", categories: @categories
+    .col-sm-3
+      = link_to new_list_path do
+        Add
+        .fa.fa-plus-square-o
+      .tab-content
+        - @categories.each_with_index do |category, i|
+          .tab-pane{:id => "list#{i}", :role => "tabpanel", class: "#{'active' if i == 0}"}
+            .list-group
+              - category.lists.each do |list|
+                = link_to list_path(list) do
+                  %button.list-group-item.list-group-item-action{:type => "button"}
+                    =list.title
+
+    .col-sm-7
+      = link_to new_link_path do
+        Add
+        .fa.fa-plus-square-o
+      %ul
+        -@links.each do |link|
+          .col-sm-6
+            %li
+              =link_to "#{link.title}", "#{link.url}", target: "_blank"

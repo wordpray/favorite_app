@@ -1,0 +1,7 @@
+= link_to new_category_path do
+  Add
+  .fa.fa-plus-square-o
+#myCategory.list-group{:role => "tablist"}
+  - categories.each_with_index do |category, i|
+    %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#list#{i}", :role => "tab"}
+      = category.title

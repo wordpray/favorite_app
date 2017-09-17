@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20170916121200) do
     t.datetime "updated_at",                          null: false
     t.string   "nickname"
     t.string   "name",                                null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "categories", "users"
