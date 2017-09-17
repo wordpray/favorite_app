@@ -10,8 +10,8 @@
         - @categories.each_with_index do |category, i|
           %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#list#{i}", :role => "tab"}
             = category.title
-    .col-sm-2
-      = link_to new_category_path do
+    .col-sm-3
+      = link_to new_list_path do
         Add
         .fa.fa-plus-square-o
       .tab-content
@@ -53,7 +53,10 @@
               リスト
             %button.list-group-item.list-group-item-action{:type => "button"}
               リスト
-    .col-sm-8
+    .col-sm-7
+      = link_to "#{}" do
+        Add
+        .fa.fa-plus-square-o
       .jumbotron
         %ul
           .col-sm-6
