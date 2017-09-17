@@ -4,7 +4,9 @@ class ListsController < ApplicationController
   end
   
   def new
+    @user = current_user
     @list = List.new
+    @categories = @user.categories
   end
 
   def show
@@ -13,7 +15,8 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = current_user.lists.new(list_params)
+    @user = current_user
+    @list = @user.lists.new(list_params)
     if @list.save
       redirect_to root_url
     else
@@ -36,6 +39,6 @@ class ListsController < ApplicationController
 private
 
   def list_params
-    params.require(:list).permit(:title)
+    params.require(:list).permit(:title, :description, :category_id)
   end
 end

@@ -1,5 +1,16 @@
 - provide(:title, "New")
 
-%h1 新規作成
-= form_for(@list) do |f|
-  = f.text_field :title
+.container
+  .row
+    .col-sm-2
+    .col-sm-8
+      .form-group
+        %h1 リスト作成
+        = form_for(@list) do |f|
+          = f.label :title
+          = f.text_field :title, class: "field form-control", rows: "1", maxlength: "20", placeholder: "title"
+          = f.label :Description
+          = f.text_field :description, class: "field form-control", rows: "3", maxlength: "140", placeholder: "Let me explain"
+          = f.collection_select(:category_id, @categories, :id, :title, {class: "field form-control"})
+          = f.submit "Create", class: "btn btn-primary"
+    .col-sm-2
