@@ -30,10 +30,10 @@ class ListsController < ApplicationController
   def edit
   end
 
-  def search
+  def update
   end
 
-  def recommend
+  def search
   end
 
 private

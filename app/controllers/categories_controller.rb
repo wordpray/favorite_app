@@ -14,6 +14,15 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def destroy
+  end
+
+  def update
+  end
+
   def destroy
   end
 

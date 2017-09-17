@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   resources :lists do
     get 'search', on: :collection
-    get 'recommend', on: :collection
   end
   
   resources :users, only: [:index, :show]
-  resources :categories
+  resources :categories, except: [:index, :show]
+  resources :links, except: [:index, :show]
 end
