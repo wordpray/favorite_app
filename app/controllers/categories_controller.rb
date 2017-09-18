@@ -4,6 +4,13 @@ class CategoriesController < ApplicationController
     @category = @user.categories.new
   end
 
+  def show
+    @user = current_user
+    @categories = @user.categories.order('title ASC')
+    @category = Category.find(params[:id])
+    @lists = @category.lists
+  end
+
   def create
     @user = current_user
     @category = @user.categories.new(category_params)

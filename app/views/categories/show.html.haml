@@ -1,0 +1,28 @@
+- provide(:title, "Home")
+
+.container
+  .row
+    .col-sm-2
+      = link_to new_category_path do
+        Add
+        .fa.fa-plus-square-o
+      %ul.list-group
+        - @categories.each do |category|
+          = link_to category_path(category) do
+            %li.list-group-item
+              =category.title
+    .col-sm-3
+      = link_to new_category_list_path do
+        Add
+        .fa.fa-plus-square-o
+      .tab-content
+        - categories.each_with_index do |category, i|
+          .tab-pane{:id => "list#{i}", :role => "tabpanel", class: "#{'active' if i == 0}"}
+            .list-group
+              - category.lists.each do |list|
+                = link_to list_path(list) do
+                  %button.list-group-item.list-group-item-action{:type => "button"}
+              =list.title
+
+
+    .col-sm-7
