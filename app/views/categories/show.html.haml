@@ -12,17 +12,22 @@
             %li.list-group-item
               =category.title
     .col-sm-3
-      = link_to new_category_list_path do
+      = link_to new_category_list_path(@category) do
         Add
         .fa.fa-plus-square-o
-      .tab-content
-        - categories.each_with_index do |category, i|
-          .tab-pane{:id => "list#{i}", :role => "tabpanel", class: "#{'active' if i == 0}"}
-            .list-group
-              - category.lists.each do |list|
-                = link_to list_path(list) do
-                  %button.list-group-item.list-group-item-action{:type => "button"}
+      %ul.list-group
+        - @lists.each do |list|
+          = link_to category_list_path(@category, list) do
+            %li.list-group-item
               =list.title
 
-
     .col-sm-7
+      -if @first_list.present?
+        = link_to new_list_link_path(@first_list) do
+          Add
+          .fa.fa-plus-square-o
+        %ul.list-group
+          - @first_list.links.each do |list|
+            .col-sm-6
+              %li
+                =link_to "#{list.title}", "#{list.url}", target: "_blank"

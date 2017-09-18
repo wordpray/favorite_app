@@ -3,7 +3,7 @@ class LinksController < ApplicationController
   def new
     @user = current_user
     @link = Link.new
-    @list = List.new
+    @list = List.find(params[:list_id])
     @links = @list.links.new
     @lists = @user.lists
   end

@@ -6,14 +6,17 @@ class ListsController < ApplicationController
   def new
     @user = current_user
     @list = List.new
+    @category = Category.find(params[:category_id])
     @categories = @user.categories
   end
 
   def show
-    @user = current_user
+    @user       = current_user
     @categories = @user.categories.order('title ASC')
-    @list  = List.find(params[:id])
-    @links = @list.links
+    @category   = Category.find(params[:category_id])
+    @lists      = @category.lists
+    @list       = List.find(params[:id])
+    @links      = @list.links
   end
 
   def create

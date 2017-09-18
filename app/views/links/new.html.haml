@@ -6,13 +6,13 @@
     .col-sm-8
       .form-group
         %h1 リンク追加
-        = form_for(@link) do |f|
+        = form_for [@list, @link] do |f|
           = f.label :List
           %br
           = f.collection_select(:list_id, @lists, :id, :title, {class: "field form-control"})
           %br
           = f.label :title
-          = f.text_area :title, class: "field form-control", rows: "1", maxlength: "20", placeholder: "Link title"
+          = f.text_area :title, class: "field form-control", rows: "1", maxlength: "30", placeholder: "Link title"
           = f.label :url
           = f.url_field :url, class: "field form-control", placeholder: "http://..."
           %br
