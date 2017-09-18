@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   get '/about', to:'favorites#about'
   get '/contact', to:'favorites#contact'
 
-  resources :lists do
-    get 'search', on: :collection
+  resources :categories, except: [:index] do
+    resources :lists, except: [:index]
   end
-  
+
+  resources :lists, only: [:index] do
+    get 'search', on: :collection
+    resources :links, except: [:index, :show]
+  end
   resources :users, only: [:index, :show]
-  resources :categories, except: [:index, :show]
-  resources :links, except: [:index, :show]
 end

@@ -3,10 +3,31 @@
 .container
   .row
     .col-sm-2
-      = render "sidebar/category", categories: @categories
-    .col-sm-3
-      = render "sidebar/list", categories: @categories
-    .col-sm-7
-      = link_to new_link_path do
+      = link_to new_category_path do
         Add
         .fa.fa-plus-square-o
+      %ul.list-group
+        - @categories.each do |category|
+          = link_to category_path(category) do
+            %li.list-group-item
+              =category.title
+    .col-sm-3
+      = link_to new_category_list_path(@first_category) do
+        Add
+        .fa.fa-plus-square-o
+      %ul.list-group
+        - @first_category.lists.each do |list|
+          = link_to category_list_path(@first_category, list) do
+            %li.list-group-item
+              =list.title
+
+    .col-sm-7
+      = link_to new_list_link_path(@first_list) do
+        Add
+        .fa.fa-plus-square-o
+      %ul.list-group
+        - @first_list.links.each do |list|
+          .col-sm-6
+            %li
+              =link_to "#{list.title}", "#{list.url}", target: "_blank"
+
