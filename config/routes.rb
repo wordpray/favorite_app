@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     get 'search', on: :collection
     resources :links, except: [:index, :show]
   end
-  resources :users, only: [:index, :show]
+  resources :users, only: [:show]
 end
