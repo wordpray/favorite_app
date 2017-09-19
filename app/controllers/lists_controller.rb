@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show, :search]
+
   def index
     @lists = List.all
   end
@@ -11,8 +13,6 @@ class ListsController < ApplicationController
   end
 
   def show
-    @user       = current_user
-    @categories = @user.categories.order('title ASC')
     @category   = Category.find(params[:category_id])
     @lists      = @category.lists
     @list       = List.find(params[:id])
