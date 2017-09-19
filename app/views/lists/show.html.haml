@@ -13,9 +13,9 @@
         Add
         .fa.fa-plus-square-o
       %ul.list-group
-        = link_to list_path(@list) do
-          %li.list-group-item
-            =@list.title
+        %li.list-group-item
+          %p=@list.title
+          %p=@list.description
 
     .col-sm-7
       = link_to new_list_link_path(@list) do
