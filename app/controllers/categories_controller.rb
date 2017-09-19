@@ -15,9 +15,27 @@ class CategoriesController < ApplicationController
   def create
     @user     = current_user
     @category = @user.categories.new(category_params)
-    if @category.save
-      redirect_to root_url
+
+    #Createボタンをクリック
+    if params[:commit]
+      if @category.save
+        redirect_to root_url
+      else
+        flash[:danger] = "Failed to create"
+        render action: "new"
+      end
+    #Continue to createボタンをクリック
+    elsif params[:next_button]
+      if @category.save
+        @category = @user.categories.new
+        flash[:success] = "Successful creation"
+        render action: "new"
+      else
+        flash[:danger] = "Failed to create"
+        render action: "new"
+      end
     else
+      flash[:danger] = "Failed to create"
       render action: "new"
     end
   end
