@@ -3,16 +3,18 @@
 .container
   .row
     .col-sm-2
-      = link_to new_category_path do
-        Add
+      -if current_user?(@user)
+        = link_to new_category_path do
+          Add
         .fa.fa-plus-square-o
       #myCategory.list-group{:role => "tablist"}
         - @categories.each_with_index do |category, i|
           %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#list#{i}", :role => "tab"}
             = category.title
     .col-sm-10
-      = link_to new_list_path do
-        Add
+      -if current_user?(@user)
+        = link_to new_list_path do
+          Add
         .fa.fa-plus-square-o
       .tab-content
         - @categories.each_with_index do |category, i|
