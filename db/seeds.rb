@@ -26,27 +26,25 @@ user = User.first
     user.categories.create!(title: title)
 end
 
-categories = Category.order(:created_at).take(5)
+# categories = Category.order(:created_at).take(5)
 
-#リスト
-10.times do |n|
-  description = "説明文#{n}"
-  categories.each do |category|
-    title = Faker::Zelda.character
-    user.lists.create!(title: title, description: description, category_id: category.id)
-  end
-end
+# リスト
+# 10.times do |n|
+#   description = "説明文#{n}"
+#   categories.each do |category|
+#     title = Faker::Zelda.character
+#     user.lists.create!(title: title, description: description, category_id: category.id)
+#   end
+# end
 
-lists = List.order(:created_at).take(50)
+# lists = List.order(:created_at).take(50)
 
-#リンク
+# #リンク
 
-15.times do |n|
-  url   = "#"
-    lists.each do |list|
-      title = Faker::Zelda.character
-      list.links.create!(title: title, url: url, user_id: user.id)
-  end
-end
-
-
+# 15.times do |n|
+#   url   = "#"
+#     lists.each do |list|
+#       title = Faker::Zelda.character
+#       list.links.create!(title: title, url: url, user_id: user.id)
+#   end
+# end
