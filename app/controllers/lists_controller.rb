@@ -8,15 +8,13 @@ class ListsController < ApplicationController
   def new
     @user = current_user
     @list = List.new
-    @category = Category.find(params[:category_id])
     @categories = @user.categories
   end
 
   def show
-    @category   = Category.find(params[:category_id])
-    @lists      = @category.lists
     @list       = List.find(params[:id])
     @links      = @list.links
+    @category   = Category.find(@list.category_id)
   end
 
   def create
@@ -30,7 +28,6 @@ class ListsController < ApplicationController
       else
         flash[:danger] = "Failed to create"
         @list = List.new
-        @category = Category.find(params[:category_id])
         @categories = @user.categories
         render action: "new"
       end
@@ -38,21 +35,18 @@ class ListsController < ApplicationController
     elsif params[:next_button]
       if @list.save
         @list = List.new
-        @category = Category.find(params[:category_id])
         @categories = @user.categories
         flash[:success] = "Successful creation"
         render action: "new"
       else
         flash[:danger] = "Failed to create"
         @list = List.new
-        @category = Category.find(params[:category_id])
         @categories = @user.categories
         render action: "new"
       end
     else
       flash[:danger] = "Failed to create"
       @list = List.new
-      @category = Category.find(params[:category_id])
       @categories = @user.categories
       render action: "new"
     end

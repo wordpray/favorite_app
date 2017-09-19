@@ -7,8 +7,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @user       = current_user
-    @categories = @user.categories.order('title ASC')
     @category   = Category.find(params[:id])
     @lists      = @category.lists
     @first_list = @lists.first

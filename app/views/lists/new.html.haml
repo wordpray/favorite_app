@@ -1,4 +1,4 @@
-- provide(:title, "New")
+- provide(:title, "List create")
 
 .container
   .row
@@ -9,7 +9,7 @@
           %p.alert{class: "alert-#{message_type}"}
             = message
         %h1 リスト作成
-        = form_for [@category, @list] do |f|
+        = form_for(@list) do |f|
           = f.label :Category
           %br
           = f.collection_select(:category_id, @categories, :id, :title, {class: "field form-control"})

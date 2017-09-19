@@ -1,4 +1,4 @@
-- provide(:title, "Home")
+- provide(:title, "Category")
 
 .container
   .row
@@ -7,17 +7,16 @@
         Add
         .fa.fa-plus-square-o
       %ul.list-group
-        - @categories.each do |category|
-          = link_to category_path(category) do
-            %li.list-group-item
-              =category.title
+        = link_to category_path(@category) do
+          %li.list-group-item
+            =@category.title
     .col-sm-3
-      = link_to new_category_list_path(@category) do
+      = link_to new_list_path do
         Add
         .fa.fa-plus-square-o
       %ul.list-group
         - @lists.each do |list|
-          = link_to category_list_path(@category, list) do
+          = link_to list_path(list) do
             %li.list-group-item
               =list.title
 
