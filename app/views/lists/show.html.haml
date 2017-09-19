@@ -5,10 +5,9 @@
         Add
         .fa.fa-plus-square-o
       %ul.list-group
-        - @categories.each do |category|
-          = link_to category_path(category) do
-            %li.list-group-item
-              =category.title
+        = link_to category_path(@category) do
+          %li.list-group-item
+            =@category.title
     .col-sm-3
       = link_to new_category_list_path(@category) do
         Add
