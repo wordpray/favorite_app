@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   def index
     @lists = List.all
   end
-  
+
   def new
     @user = current_user
     @list = List.new
@@ -22,9 +22,38 @@ class ListsController < ApplicationController
   def create
     @user = current_user
     @list = @user.lists.new(list_params)
-    if @list.save
-      redirect_to root_url
+
+    #Createボタンをクリック
+    if params[:commit]
+      if @list.save
+        redirect_to root_url
+      else
+        flash[:danger] = "Failed to create"
+        @list = List.new
+        @category = Category.find(params[:category_id])
+        @categories = @user.categories
+        render action: "new"
+      end
+    #Continue to createボタンをクリック
+    elsif params[:next_button]
+      if @list.save
+        @list = List.new
+        @category = Category.find(params[:category_id])
+        @categories = @user.categories
+        flash[:success] = "Successful creation"
+        render action: "new"
+      else
+        flash[:danger] = "Failed to create"
+        @list = List.new
+        @category = Category.find(params[:category_id])
+        @categories = @user.categories
+        render action: "new"
+      end
     else
+      flash[:danger] = "Failed to create"
+      @list = List.new
+      @category = Category.find(params[:category_id])
+      @categories = @user.categories
       render action: "new"
     end
   end

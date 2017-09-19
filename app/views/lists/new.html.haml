@@ -5,6 +5,9 @@
     .col-sm-2
     .col-sm-8
       .form-group
+        - flash.each do |message_type, message|
+          %p.alert{class: "alert-#{message_type}"}
+            = message
         %h1 リスト作成
         = form_for [@category, @list] do |f|
           = f.label :Category
@@ -16,4 +19,5 @@
           = f.label :Description
           = f.text_field :description, class: "field form-control", rows: "3", maxlength: "140", placeholder: "Let me explain"
           = f.submit "Create", class: "btn btn-primary"
+          = f.submit "Continue to create", name: "next_button", class: "btn btn-primary"
     .col-sm-2
