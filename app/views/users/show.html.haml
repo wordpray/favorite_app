@@ -1,0 +1,26 @@
+- provide(:title, @user.nickname)
+
+.container
+  .row
+    .col-sm-2
+      = link_to new_category_path do
+        Add
+        .fa.fa-plus-square-o
+      #myCategory.list-group{:role => "tablist"}
+        - @categories.each_with_index do |category, i|
+          %a.list-group-item.list-group-item-action{"data-toggle" => "list", :href => "#list#{i}", :role => "tab"}
+            = category.title
+    .col-sm-10
+      = link_to new_list_path do
+        Add
+        .fa.fa-plus-square-o
+      .tab-content
+        - @categories.each_with_index do |category, i|
+          .tab-pane{:id => "list#{i}", :role => "tabpanel", class: "#{'active' if i == 0}"}
+            .list-group
+              - category.lists.each do |list|
+                .col-sm-3
+                  = link_to list_path(list) do
+                    %button.list-group-item.list-group-item-action{:type => "button"}
+                      %h4=list.title
+                      %p=list.description
