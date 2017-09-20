@@ -18,24 +18,10 @@
             %i.fa.fa-list
             Lists
       %ul.nav.navbar-nav.navbar-right
-        %li.dropdown
-          %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-            button要素
-            %span.caret
-          %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
-            %li
-              %a{:href => "#"} メニュー1
-            %li
-              %a{:href => "#"} メニュー2
-            %li
-              %a{:href => "#"} メニュー3
-            %li
-              %a{:href => "#"} メニュー4
         %li.btn-group
-          %a.dropdown
-            %a{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-              a要素
-              %span.caret
+          %a.dropdown{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            a要素
+            %span.caret
             %ul.dropdown-menu{:role => "menu"}
               %li{:role => "presentation"}
                 %a{:href => "#"} リンクのリスト１
@@ -43,7 +29,6 @@
                 %a{:href => "#"} リンクのリスト２
               %li{:role => "presentation"}
                 %a{:href => "#"} リンクのリスト３
-
 
         %li.btn-group
           %a.dropdown-toggle{"data-toggle" => "dropdown"}
