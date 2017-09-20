@@ -1,42 +1,27 @@
 .container
   .row
-    .col-sm-3.hidden-xs
-      %h4 人気タブ
+    .col-sm-2.hidden-xs
+      %h4 Tab
       .list-group
-        %button.list-group-item.list-group-item-action.active{:type => "button"}
+        %button.list-group-item.list-group-item-action{:type => "button"}
           tab1
         %button.list-group-item.list-group-item-action{:type => "button"} tab2
         %button.list-group-item.list-group-item-action{:type => "button"} tab3
         %button.list-group-item.list-group-item-action{:type => "button"} tab4
         %button.list-group-item.list-group-item-action{:type => "button"} tab5
-      %h4 人気リスト
-      .list-group
-        %button.list-group-item.list-group-item-action.active{:type => "button"}
-          tab1
-        %button.list-group-item.list-group-item-action{:type => "button"} tab2
-        %button.list-group-item.list-group-item-action{:type => "button"} tab3
-        %button.list-group-item.list-group-item-action{:type => "button"} tab4
-        %button.list-group-item.list-group-item-action{:type => "button"} tab5
-      %h4 人気ユーザー
-      .list-group
-        %button.list-group-item.list-group-item-action.active{:type => "button"}
-          tab1
-        %button.list-group-item.list-group-item-action{:type => "button"} tab2
-        %button.list-group-item.list-group-item-action{:type => "button"} tab3
-        %button.list-group-item.list-group-item-action{:type => "button"} tab4
-        %button.list-group-item.list-group-item-action{:type => "button"} tab5
+        %button.list-group-item.list-group-item-action{:type => "button"} tab6
+        %button.list-group-item.list-group-item-action{:type => "button"} tab7
+        %button.list-group-item.list-group-item-action{:type => "button"} tab8
+        %button.list-group-item.list-group-item-action{:type => "button"} tab9
+        %button.list-group-item.list-group-item-action{:type => "button"} tab10
 
-    .col-sm-9
-      %ul.nav.nav-tabs
-        %li.active
-          %a{"data-toggle" => "tab", href: "#new"} 新着
-        %li
-          %a{"data-toggle" => "tab", href: "#popular"} 人気
-      .tab-content
-        #new.tab-pane.active
-          .col-sm-6
-            %h4 新着記事一覧
-          .col-sm-6
-            %h4 新着記事一覧
-        #popular.tab-pane
-          %h4 人気記事一覧
+    .col-sm-10
+      -@genres.each do |genre|
+        .col-sm-6
+          .jumbotron
+            %h4= genre.name
+            %small.text-muted.hidden-xs= genre.description
+            %ul.list-group
+              - genre.lists.each do |list|
+                %li
+                  =link_to "#{list.title}", list_path(list)
