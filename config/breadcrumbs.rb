@@ -14,6 +14,12 @@ crumb :contact do
   parent :root
 end
 
+# genre#show
+crumb :show_genre do |genre|
+  link genre.name, genre_path(genre)
+  parent :root
+end
+
 # list#index
 crumb :lists do
   link "Lists", lists_path
