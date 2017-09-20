@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/about', to:'favorites#about'
   get '/contact', to:'favorites#contact'
 
+  resources :genres, only: :show
   resources :categories, except: [:index]
   resources :lists do
     get 'search', on: :collection
