@@ -10,6 +10,10 @@
             = message
         %h1 リスト作成
         = form_for(@list) do |f|
+          = f.label :Genre
+          %br
+          = f.collection_select(:genre_id, @genres, :id, :name, {class: "field form-control"})
+          %br
           = f.label :Category
           %br
           = f.collection_select(:category_id, @categories, :id, :title, {class: "field form-control"})
