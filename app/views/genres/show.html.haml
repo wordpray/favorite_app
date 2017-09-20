@@ -1,4 +1,4 @@
-- provide(:title, "Index")
+- provide(:title, "Genre")
 
 .container
   .row
@@ -18,13 +18,12 @@
         %button.list-group-item.list-group-item-action{:type => "button"} tab10
 
     .col-sm-10
-      -@genres.each do |genre|
-        .col-sm-6
-          .jumbotron
-            =link_to genre_path(genre) do
-              %h4= genre.name
-            %small.text-muted.hidden-xs= genre.description
-            %ul.list-group
-              - genre.lists.each do |list|
-                %li
-                  =link_to "#{list.title}", list_path(list)
+      .jumbotron
+        %h4= @genre.name
+        %small.text-muted.hidden-xs= @genre.description
+        %ul.list-group
+          - @genre.lists.each do |list|
+            %li
+              =link_to list_path(list) do
+                %h5=list.title
+                .small=list.description
