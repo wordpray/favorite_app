@@ -18,8 +18,8 @@
             %i.fa.fa-list
             Lists
       %ul.nav.navbar-nav.navbar-right
-        .dropdown
-          %button#dropdownMenu1.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+        %li.dropdown
+          %button#dropdownMenu1.btn-nav.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
             ドロップダウン
             %span.caret
           %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
@@ -31,24 +31,12 @@
               %a{:href => "#"} メニュー3
             %li
               %a{:href => "#"} メニュー4
-        .dropdown
-          %button#dropdownmenu.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-            Dropdown
-            %span.caret
-          %ul.dropdown-menu{"aria-labelled-by" => "dropdownmenu"}
-            %li
-              %a{:href => "#"} 1 Some text
-            %li
-              %a{:href => "#"} 2 Some text
-            %li
-              %a{:href => "#"} 3 Some text
-
 
         %li.btn-group
-          %a.dropdown-toggle{"data-toggle" => "dropdown"}
+          %a#dropdownMenu2.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
             %i.fa.fa-search
             Search
-          %ul.dropdown-menu
+          %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu2"}
             %li
               =link_to "人気タグ", "#"
             %li
