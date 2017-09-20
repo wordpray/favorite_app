@@ -3,12 +3,14 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
+    @genres = Genre.all
   end
 
   def new
-    @user = current_user
-    @list = List.new
+    @user       = current_user
+    @list       = List.new
     @categories = @user.categories
+    @genres = Genre.all
   end
 
   def show
@@ -67,6 +69,6 @@ class ListsController < ApplicationController
 private
 
   def list_params
-    params.require(:list).permit(:title, :description, :category_id)
+    params.require(:list).permit(:title, :description, :category_id, :genre_id)
   end
 end
