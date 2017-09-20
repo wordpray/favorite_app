@@ -18,22 +18,20 @@
             %i.fa.fa-list
             Lists
       %ul.nav.navbar-nav.navbar-right
-        .dropdown
-          %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-            ドロップダウン
-            %span.caret
-          %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
-            %li
-              %a{:href => "#"} メニュー1
-            %li
-              %a{:href => "#"} メニュー2
-            %li
-              %a{:href => "#"} メニュー3
-            %li
-              %a{:href => "#"} メニュー4
+        %li.btn-group
+          .dropdown
+            #dropdownSearch.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+              %i.fa.fa-search
+              Search
+              %span.caret
+            %ul.dropdown-menu{"aria-labelledby" => "dropdownSearch"}
+              %li
+                =link_to "人気タグ", "#"
+              %li
+                =link_to "人気リスト",  lists_path
 
         %li.btn-group
-          %a.dropdown-toggle{"data-toggle" => "dropdown"}
+          .dropdown-toggle{"data-toggle" => "dropdown"}
             %i.fa.fa-search
             Search
           %ul.dropdown-menu
@@ -43,7 +41,7 @@
               =link_to "人気リスト",  lists_path
         - if user_signed_in?
           %li.btn-group
-            %a.dropdown-toggle{"data-toggle" => "dropdown"}
+            .dropdown-toggle{"data-toggle" => "dropdown"}
               %i.fa.fa-plus
               %span.caret
             %ul.dropdown-menu
@@ -55,7 +53,7 @@
                 =link_to "リンク追加","#"
         - if user_signed_in?
           %li.btn-group
-            %a.dropdown-toggle{"data-toggle" => "dropdown"}
+            .dropdown-toggle{"data-toggle" => "dropdown"}
               %i.fa.fa-user
               User
               %span.caret
