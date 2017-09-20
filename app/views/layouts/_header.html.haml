@@ -31,17 +31,18 @@
               %a{:href => "#"} メニュー3
             %li
               %a{:href => "#"} メニュー4
-        .dropdown
-          %a.btn.btn-default{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            a要素
-            %span.caret
-          %ul.dropdown-menu{:role => "menu"}
-            %li{:role => "presentation"}
-              %a{:href => "#"} リンクのリスト１
-            %li{:role => "presentation"}
-              %a{:href => "#"} リンクのリスト２
-            %li{:role => "presentation"}
-              %a{:href => "#"} リンクのリスト３
+        %li.btn-group
+          %a.dropdown
+            %a{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              a要素
+              %span.caret
+            %ul.dropdown-menu{:role => "menu"}
+              %li{:role => "presentation"}
+                %a{:href => "#"} リンクのリスト１
+              %li{:role => "presentation"}
+                %a{:href => "#"} リンクのリスト２
+              %li{:role => "presentation"}
+                %a{:href => "#"} リンクのリスト３
 
 
         %li.btn-group
