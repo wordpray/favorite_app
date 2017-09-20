@@ -18,20 +18,22 @@
             %i.fa.fa-list
             Lists
       %ul.nav.navbar-nav.navbar-right
-        %li.btn-group
-          .dropdown
-            #dropdownSearch.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-              %i.fa.fa-search
-              Search
-              %span.caret
-            %ul.dropdown-menu{"aria-labelledby" => "dropdownSearch"}
-              %li
-                =link_to "人気タグ", "#"
-              %li
-                =link_to "人気リスト",  lists_path
+        .dropdown
+          #dropdownMenu1.dropdown-toggle{"aria-expanded" => "true", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+            ドロップダウン
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+            %li
+              %a{:href => "#"} メニュー1
+            %li
+              %a{:href => "#"} メニュー2
+            %li
+              %a{:href => "#"} メニュー3
+            %li
+              %a{:href => "#"} メニュー4
 
         %li.btn-group
-          .dropdown-toggle{"data-toggle" => "dropdown"}
+          %a.dropdown-toggle{"data-toggle" => "dropdown"}
             %i.fa.fa-search
             Search
           %ul.dropdown-menu
@@ -41,7 +43,7 @@
               =link_to "人気リスト",  lists_path
         - if user_signed_in?
           %li.btn-group
-            .dropdown-toggle{"data-toggle" => "dropdown"}
+            %a.dropdown-toggle{"data-toggle" => "dropdown"}
               %i.fa.fa-plus
               %span.caret
             %ul.dropdown-menu
@@ -53,7 +55,7 @@
                 =link_to "リンク追加","#"
         - if user_signed_in?
           %li.btn-group
-            .dropdown-toggle{"data-toggle" => "dropdown"}
+            %a.dropdown-toggle{"data-toggle" => "dropdown"}
               %i.fa.fa-user
               User
               %span.caret
@@ -69,7 +71,7 @@
                 =link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           %li.btn-group
-            .dropdown-toggle{"data-toggle" => "dropdown"}
+            %a.dropdown-toggle{"data-toggle" => "dropdown"}
               %i.fa.fa-user-plus
                 会員登録
             %ul.dropdown-menu
