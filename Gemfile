@@ -70,6 +70,7 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'nokogiri'
 gem 'popper_js'
+gem 'gretel'
 
 
 
